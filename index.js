@@ -18,11 +18,14 @@ db.exec(`
     INSERT INTO entity (name) VALUES ('Bob');
 `)
 db.all('SELECT * FROM entity',(err,rows)=>{
+    if(err){
+        return console.error(err.message);
+    }
     console.log(rows);
 })
 db.each('SELECT * FROM entity',(err,row)=>{
-    console.log(row);
-})
-db.get('SELECT * FROM entity',(err,row)=>{
+    if(err){
+        return console.error(err.message);
+    }
     console.log(row);
 })
