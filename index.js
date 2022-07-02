@@ -21,7 +21,7 @@ db.exec(`
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name VARCHAR(64)
     );
-`)
+`,base_sql_callback())
 db.exec(`
     INSERT INTO entity (name) VALUES ('John'), ('Jane'), ('Bob');
 `, base_sql_callback())
