@@ -11,11 +11,9 @@ db.exec(`
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name VARCHAR(64)
     );
-    `)
+`)
 db.exec(`
-    INSERT INTO entity (name) VALUES ('John');
-    INSERT INTO entity (name) VALUES ('Jane');
-    INSERT INTO entity (name) VALUES ('Bob');
+    INSERT INTO entity (name) VALUES ('John'), ('Jane'), ('Bob');
 `)
 db.all('SELECT * FROM entity',(err,rows)=>{
     if(err){
@@ -29,3 +27,4 @@ db.each('SELECT * FROM entity',(err,row)=>{
     }
     console.log(row);
 })
+
