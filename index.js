@@ -5,6 +5,16 @@ let db = new sqlite3.Database(':memory:', (err) => {
         return console.error(err.message);
     }
 });
+
+function base_sql_callback(callback = ()=>{}) {
+    return function (err, result) {
+        if (err) {
+            return console.error(err.message);
+        }
+        callback(result);
+    }
+}
+
 db.exec(`
     CREATE TABLE entity
     (
@@ -14,17 +24,11 @@ db.exec(`
 `)
 db.exec(`
     INSERT INTO entity (name) VALUES ('John'), ('Jane'), ('Bob');
-`)
-db.all('SELECT * FROM entity',(err,rows)=>{
-    if(err){
-        return console.error(err.message);
-    }
-    console.log(rows);
-})
-db.each('SELECT * FROM entity',(err,row)=>{
-    if(err){
-        return console.error(err.message);
-    }
-    console.log(row);
-})
+`, base_sql_callback())
+db.all('SELECT * FROM entity',base_sql_callback(result => {
+    console.log(result);
+}))
+db.each('SELECT * FROM entity',base_sql_callback(result => {
+    console.log(result);
+}))
 
