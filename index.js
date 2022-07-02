@@ -20,3 +20,6 @@ db.exec(`
 db.all('SELECT * FROM entity',(err,rows)=>{
     console.log(rows);
 })
+db.each('SELECT * FROM entity',(err,row)=>{
+    console.log(row);
+})
