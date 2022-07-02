@@ -23,3 +23,6 @@ db.all('SELECT * FROM entity',(err,rows)=>{
 db.each('SELECT * FROM entity',(err,row)=>{
     console.log(row);
 })
+db.get('SELECT * FROM entity',(err,row)=>{
+    console.log(row);
+})
