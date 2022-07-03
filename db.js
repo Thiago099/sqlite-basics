@@ -8,17 +8,28 @@ let db = new sqlite3.Database(':memory:', (err) => {
 
 function base_sql_callback(callback = ()=>{}) {
     return function (err, result) {
-        if (err) {
-            return console.error(err.message);
-        }
         callback(result);
     }
 }
 
-module.exports.run = (sql, callback) => {
-    db.exec(sql, base_sql_callback(callback));
+module.exports.run = (sql, callback = ()=>{}) => {
+    db.run(sql, function(err){
+        if (err) {
+            return console.error(err.message);
+        }
+        callback(this.lastID, this.changes);
+    });
 }
+
 
 module.exports.query = (sql, callback) =>  {
     db.all(sql, base_sql_callback(callback));
+}
+
+module.exports.serialize = (callback) => {
+    db.serialize(callback);
+}
+
+module.exports.close = () => {
+    db.close();
 }
