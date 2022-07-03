@@ -12,12 +12,11 @@ function base_sql_callback(callback = ()=>{}) {
     }
 }
 
-module.exports.run = (sql, callback = ()=>{}) => {
-    db.run(sql, function(err){
+module.exports.run = (sql) => {
+    db.exec(sql, function(err){
         if (err) {
             return console.error(err.message);
         }
-        callback(this.lastID, this.changes);
     });
 }
 
