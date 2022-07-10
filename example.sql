@@ -1,20 +1,20 @@
-CREATE TABLE subject
+CREATE TABLE entity
 (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name VARCHAR(64)
 );
-INSERT INTO subject (name) VALUES ('John'), ('Jane'), ('Bob');
+INSERT INTO entity (name) VALUES ('John'), ('Jane'), ('Bob'), ('you');
 
-CREATE TABLE adjective
+CREATE TABLE state
 (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name VARCHAR(64)
 );
-INSERT INTO adjective (name) VALUES ('handsome'), ('ugly'), ('fat'), ('thin'), ('tall'), ('short'), ('hot'), ('cold'),('burnt');
+INSERT INTO state (name) VALUES ('handsome'), ('ugly'), ('fat'), ('thin'), ('tall'), ('short'), ('hot'), ('cold'),('burnt');
 
-CREATE TABLE verb
+CREATE TABLE action
 (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name VARCHAR(64)
 );
-INSERT INTO verb (name) VALUES ('jump'), ('swim'), ('walk'), ('run'), ('play'), ('eat'), ('touch'), ('drink'), ('sleep'),('burn');
+INSERT INTO action (name) VALUES ('jump'), ('swim'), ('walk'), ('run'), ('play'), ('eat'), ('touch'), ('drink'), ('sleep'),('burn');

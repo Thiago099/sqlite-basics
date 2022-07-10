@@ -5,10 +5,10 @@ db.serialize(() => {
     db.query('SELECT * FROM entity',result => {
         console.log(result);
     })
-    db.query('SELECT * FROM adjective',result => {
+    db.query('SELECT * FROM state',result => {
         console.log(result);
     })
-    db.query('SELECT * FROM verb',result => {
+    db.query('SELECT * FROM action',result => {
         console.log(result);
     })
     db.close();
