@@ -50,7 +50,7 @@ CREATE TABLE entity_action
     FOREIGN KEY(action_id) REFERENCES action(id)
 );
 
-INSERT INTO entity_action VALUES (1, 4, 2), (2, 3, 2), (3, 1, 1), (4, 1, 4);
+INSERT INTO entity_action VALUES (1, 4, 2), (2, 2, 3), (3, 1, 1), (4, 1, 4);
 
 CREATE TABLE entity_action_causality
 (
