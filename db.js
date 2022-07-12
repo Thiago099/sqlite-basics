@@ -8,6 +8,9 @@ let db = new sqlite3.Database(':memory:', (err) => {
 
 function base_sql_callback(callback = ()=>{}) {
     return function (err, result) {
+        if (err) {
+            return console.error(err.message);
+        }
         callback(result);
     }
 }
