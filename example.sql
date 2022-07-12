@@ -10,7 +10,7 @@ CREATE TABLE state
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name VARCHAR(64)
 );
-INSERT INTO state (name) VALUES ('new'), ('old'), ('functional'), ('broken');
+INSERT INTO state (name) VALUES ('functional'), ('broken');
 
 CREATE TABLE action
 (
