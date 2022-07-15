@@ -28,7 +28,7 @@ CREATE TABLE instance
     FOREIGN KEY(entity_to_id) REFERENCES entity(id)
 );
 
-INSERT INTO instance VALUES (1, 3, 4), (2, 3,2), (3, 3, 1),(4, 2, 5);
+INSERT INTO instance VALUES (1, 3, 4),(2, 2, 5);
 
 CREATE TABLE entity_state
 (
