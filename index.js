@@ -5,6 +5,7 @@ db.serialize(() => {
     db.query(`
         SELECT * from entity
         `,result => {
+        console.log("Instance");
         console.table(result);
     })
 
